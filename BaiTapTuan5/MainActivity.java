@@ -178,8 +178,8 @@ public class MainActivity extends AppCompatActivity {
                 rhino.setOptimizationLevel(-1);
                 String ketqua="";
                 try{
-                    Scriptable scriptable = rhino.initSafeStandardObjects();
-                    ketqua = rhino.evaluateString(scriptable,process,"javascript",1,null).toString();
+                    Scriptable scriptable = rhino.initStandardObjects();
+                    ketqua = rhino.evaluateString(scriptable,xuli,"javascript",1,null).toString();
 
                 }
                 catch (Exception e){
