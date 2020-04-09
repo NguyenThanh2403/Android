@@ -45,15 +45,16 @@ public class MainActivity extends AppCompatActivity {
         btnCE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvInput.setText("");
-                tvOutput.setText("");
+
+                tvOutput.setText("0");
             }
         });
         btnKhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 xuli=tvInput.getText().toString();
-                tvInput.setText(xuli + "0");
+                if (xuli.equals("0")==true) tvInput.setText("0");
+                else tvInput.setText(xuli + "0");
             }
         });
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -165,9 +166,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 xuli=tvInput.getText().toString();
-                if(xuli=="") tvInput.setText("");
-                else
-                    tvInput.setText(xuli.substring(0,xuli.length()-1));
+                if(xuli.equals("")==true) tvInput.setText("0");
+                else  if(xuli.equals("0")==true)tvInput.setText("0");
+                else if(xuli.length()==1)tvInput.setText("0");
+                else tvInput.setText(xuli.substring(0,xuli.length()-1));
+            }
+        });
+        btnAm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                xuli=tvInput.getText().toString();
+                if(xuli.substring(0,1).equals("-")==false) {tvInput.setText("-"+xuli);}
+                else if(xuli.substring(0,1).equals("-")==true) {tvInput.setText(xuli.substring(1,xuli.length()));}
             }
         });
         btnBang.setOnClickListener(new View.OnClickListener() {
