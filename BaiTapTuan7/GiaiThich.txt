@@ -1,0 +1,2 @@
+- Phan Tinh Toan Ket qua trong MainActivity em dung rhino javascript de tinh toan
+- Phan giao dien lam chua giong anh cho lam
