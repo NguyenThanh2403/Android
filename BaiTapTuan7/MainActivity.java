@@ -18,11 +18,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnCE,btnBS,btnChia,btn7,btn8,btn9,btn4,btn5,btn6,btnTru,btn1,btn2,btn3,btnCong,btnAm,btn0,btnCham;
+    Button btnCE,btnES,btnChia,btn7,btn8,btn9,btn4,btn5,btn6,btn1,btn2,btn3,btn0,btnCham;
     TextView tvInput,tvOutput;
     String xuli;
     List<String> items;
     ArrayAdapter<String> adapter;
+    int selectedItemPosition = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(MainActivity.this,items.get(position),Toast.LENGTH_LONG).show();
+                selectedItemPosition = position;
             }
 
             @Override
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         btn9=findViewById(R.id.btn9);
         btnCham=findViewById(R.id.btnCham);
         btnCE=findViewById(R.id.btnCE);
-        btnBS=findViewById(R.id.btnBS);
+        btnES=findViewById(R.id.btnES);
         tvInput=findViewById(R.id.tvInput);
         tvOutput=findViewById(R.id.tvOutput);
         btnCE.setOnClickListener(new View.OnClickListener() {
@@ -151,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnBS.setOnClickListener(new View.OnClickListener() {
+        btnES.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 xuli=tvInput.getText().toString();
@@ -161,14 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 else tvInput.setText(xuli.substring(0,xuli.length()-1));
             }
         });
-        btnAm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                xuli=tvInput.getText().toString();
-                if(xuli.substring(0,1).equals("-")==false) {tvInput.setText("-"+xuli);}
-                else if(xuli.substring(0,1).equals("-")==true) {tvInput.setText(xuli.substring(1,xuli.length()));}
-            }
-        });
+
 
     }
 }
